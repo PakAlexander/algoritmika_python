@@ -10,17 +10,18 @@ def get_dict(str):... Возвращает словарь.
 Вариант 1(цикл for):
 ```
 def get_dict(str):
-    str, res = str.split(), []
+    str, res = str.split(), {}
     for i in str:
         el = i.split('=')
         el[1] = int(el[1])
-        res.append(el)
-    return dict(res)
-    
+        res[el[0]] = el[1]
+    return res
+
+
 str = "one=1 two=2 three=3"
-print(get_dict(str))    
+print(get_dict(str)) 
 ```
-Вариант 2(Генератор списков):
+Вариант 2(Генератор):
 ```
 def get_dict(ls):
     str = ls.split()
@@ -52,7 +53,7 @@ def get_dict(ls):
 ls = "лена=имя дон=река москва=город False=ложь 3=удовлетворительно True=истина"
 get_dict(ls)
 ```
-Вариант 2(Генератор списков):
+Вариант 2(Генератор):
 ```
 def get_dict(ls):
     ls = ls.split()
